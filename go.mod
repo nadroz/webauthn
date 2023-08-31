@@ -1,4 +1,4 @@
-module github.com/fxamacker/webauthn
+module github.com/nadroz/webauthn
 
 go 1.12
 
