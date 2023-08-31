@@ -23,7 +23,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/fxamacker/webauthn"
+	"github.com/nadroz/webauthn"
 )
 
 var (

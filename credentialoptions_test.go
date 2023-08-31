@@ -21,7 +21,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/fxamacker/webauthn"
+	"github.com/nadroz/webauthn"
 )
 
 func TestPublicKeyCredentialCreationOptionsJSONMarshal(t *testing.T) {

@@ -23,7 +23,7 @@ import (
 	"encoding/pem"
 	"testing"
 
-	"github.com/fxamacker/webauthn"
+	"github.com/nadroz/webauthn"
 )
 
 var (

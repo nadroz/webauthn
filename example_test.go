@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/fxamacker/webauthn"
+	"github.com/nadroz/webauthn"
 )
 
 func ExampleNewAttestationOptions() {

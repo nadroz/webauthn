@@ -30,7 +30,7 @@ import (
 	"io"
 
 	"github.com/fxamacker/cbor/v2"
-	"github.com/fxamacker/webauthn"
+	"github.com/nadroz/webauthn"
 )
 
 var (
@@ -719,7 +719,7 @@ var tpmECCCurve = map[int]string{
 
 var tpmStructureTags = map[int]string{
 	0x00C4: "TPM_ST_RSP_COMMAND",
-	0X8000: "TPM_ST_NULL",
+	0x8000: "TPM_ST_NULL",
 	0x8001: "TPM_ST_NO_SESSIONS",
 	0x8002: "TPM_ST_SESSIONS",
 	0x8014: "TPM_ST_ATTEST_NV",

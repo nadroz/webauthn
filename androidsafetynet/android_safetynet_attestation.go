@@ -26,7 +26,7 @@ import (
 	"fmt"
 
 	"github.com/fxamacker/cbor/v2"
-	"github.com/fxamacker/webauthn"
+	"github.com/nadroz/webauthn"
 )
 
 // Google GlobalSign Root CA R2, converted from https://pki/goog/gsr2/GSR2.crt.

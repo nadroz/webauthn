@@ -24,7 +24,7 @@ import (
 	"fmt"
 
 	"github.com/fxamacker/cbor/v2"
-	"github.com/fxamacker/webauthn"
+	"github.com/nadroz/webauthn"
 )
 
 var oidPackedCertificateExt = asn1.ObjectIdentifier{1, 3, 6, 1, 4, 1, 45724, 1, 1, 4}

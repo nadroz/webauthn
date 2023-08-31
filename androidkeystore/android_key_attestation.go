@@ -26,7 +26,7 @@ import (
 	"reflect"
 
 	"github.com/fxamacker/cbor/v2"
-	"github.com/fxamacker/webauthn"
+	"github.com/nadroz/webauthn"
 )
 
 /*
