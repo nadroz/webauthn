@@ -91,6 +91,36 @@ func parseAttestationObject(data []byte) (authnData *AuthenticatorData, attStmt 
 	return
 }
 
+func ParseAttestationObject(data []byte) (authnData *AuthenticatorData, attStmt AttestationStatement, err error) {
+	type rawAttestationObject struct {
+		AuthnData []byte          `cbor:"authData"`
+		Fmt       string          `cbor:"fmt"`
+		AttStmt   cbor.RawMessage `cbor:"attStmt"`
+	}
+	var raw rawAttestationObject
+	if err = cbor.Unmarshal(data, &raw); err != nil {
+		return nil, nil, &UnmarshalSyntaxError{Type: "attestation object", Msg: err.Error()}
+	}
+	if len(raw.AuthnData) == 0 {
+		return nil, nil, &UnmarshalMissingFieldError{Type: "attestation object", Field: "authenticator data"}
+	}
+	if len(raw.Fmt) == 0 {
+		return nil, nil, &UnmarshalMissingFieldError{Type: "attestation object", Field: "attestation statement format"}
+	}
+
+	if authnData, _, err = parseAuthenticatorData(raw.AuthnData); err != nil {
+		return nil, nil, err
+	}
+	// Verify that credential id and credential are not empty.
+	if len(authnData.CredentialID) == 0 || authnData.Credential == nil {
+		return nil, nil, &UnmarshalMissingFieldError{Type: "attestation object", Field: "credential data"}
+	}
+	if attStmt, err = parseAttestationStatement(raw.Fmt, raw.AttStmt); err != nil {
+		return nil, nil, err
+	}
+	return
+}
+
 // PublicKeyCredentialAttestation represents the Web Authentication structure of PublicKeyCredential
 // for new credentials, as defined in http://w3c.github.io/webauthn/#iface-pkcredential
 type PublicKeyCredentialAttestation struct {
