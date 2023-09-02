@@ -85,6 +85,10 @@ func parseAuthenticatorData(data []byte) (authnData *AuthenticatorData, rest []b
 	return
 }
 
+func ParseAuthenticatorData(data []byte) (authnData *AuthenticatorData, rest []byte, err error) {
+	return parseAuthenticatorData(data)
+}
+
 // TokenBindingStatus represents the Web Authentication enumeration of the same name,
 // as defined in http://w3c.github.io/webauthn/#dictionary-client-data
 type TokenBindingStatus string
