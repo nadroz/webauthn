@@ -134,6 +134,10 @@ func parseClientData(data []byte) (clientData *CollectedClientData, err error) {
 	return
 }
 
+func ParseClientData(data []byte) (clientData *CollectedClientData, err error) {
+	return parseClientData(data)
+}
+
 func base64DecodeString(s string) ([]byte, error) {
 	if len(s) > 1 {
 		// remove padding
