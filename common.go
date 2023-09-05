@@ -20,7 +20,6 @@ import (
 	"encoding/base64"
 	"encoding/binary"
 	"encoding/json"
-	"net/url"
 	"strings"
 )
 
@@ -158,13 +157,4 @@ func base64DecodeString(s string) ([]byte, error) {
 	s = strings.Replace(s, "_", "/", -1)
 
 	return base64.RawStdEncoding.DecodeString(s)
-}
-
-func ParseRPIDFromOrigin(origin string) (string, error) {
-	url, err := url.Parse(origin)
-	if err != nil {
-		return "", err
-	}
-	hostname := strings.TrimPrefix(url.Hostname(), "www.")
-	return hostname, nil
 }
